@@ -15,7 +15,8 @@ from riemann.tx import tx_builder as tb
 
 #       private_key_bytes = bytes.fromhex('YOUR PRIVATE KEY GOES HERE')
 #       private_key = bitcoin.wallet.CKey(private_key_bytes)
-#       public_key = bitcoin.wallet.CKey(private_key_bytes)
+#       public_key = bitcoin.wallet.CKey(private_key_bytes).pub()
+
 
 # Public key
 public_key = '02bfb0a1108262227c8415aa90edc6c1a10e1e447ae58587c537926ef7069a38ca'
@@ -59,7 +60,7 @@ tx_return_output = tb.make_op_return_output('made with ❤ by riemann'.encode('u
 # Generate Unsigned Tx 
 
 # Create unsigned transaction
-tx = simple.unsigned_tx([tx_in], [tx_out, tx_return_output])
+tx = simple.unsigned_legacy_tx([tx_in], [tx_out, tx_return_output])
 
 
 # Generate Signed Tx
